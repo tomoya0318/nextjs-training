@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-training
+    ports:
+      - '3001:3001'
+    env_file:
+      - .env
+    volumes:
+      - type: bind
+        source: src
+        target: /work/src
+      - type: bind
+        source: public
+        target: /work/public
+      - type: volume
+        source: node_modules
+        target: /work/node_modules
+    restart: always
+    tty: true
+    stdin_open: true
+
+volumes:
+  node_modules:
