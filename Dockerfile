@@ -11,11 +11,6 @@ RUN corepack prepare yarn@4.3.1 --activate
 # 必要なファイルをコピー
 COPY package.json yarn.lock* .yarnrc.yml ./
 
-# # 依存関係をインストール
-# RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
-#     else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
-#     fi
-
 RUN yarn install
 
 # 残りの必要なファイルをコピー
