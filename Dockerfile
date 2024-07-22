@@ -5,9 +5,6 @@ WORKDIR /work
 # corepackを有効化
 RUN corepack enable
 
-# Yarn 4.3.1を設定
-RUN corepack prepare yarn@4.3.1 --activate
-
 # 必要なファイルをコピー
 COPY package.json yarn.lock* .yarnrc.yml ./
 
